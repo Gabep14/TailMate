@@ -17,7 +17,7 @@ struct ContentView: View {
                     RoundedRectangle(cornerRadius: 5)
                     Text("🏈")
                         .padding(5)
-                    
+                    Text("Hi")
                 }
             }
         }
