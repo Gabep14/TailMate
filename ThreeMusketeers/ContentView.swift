@@ -9,21 +9,30 @@ import SwiftUI
 import MapKit
 
 struct ContentView: View {
+    @State private var searchText = ""
     var body: some View {
-      //  Text("Tailgates Near You")
-        Map {
-            Annotation("Ford Field", coordinate: .fordField) {
-                ZStack {
-                    RoundedRectangle(cornerRadius: 5)
-                    Text("🏈")
-                        .padding(5)
-                    Text("Hi")
-                }
-            }
-        }
+        MapView()
+//        TabView {
+//            VStack {
+//                Text("Tailgates Near You")
+//                NavigationStack {
+//                    //   Text("Search \(searchText)")
+//                    Map {
+//                        Annotation("Ford Field", coordinate: .fordField) {
+//                            ZStack {
+//                                RoundedRectangle(cornerRadius: 5)
+//                                Text("🏈")
+//                                    .padding(5)
+//                                
+//                            }
+//                        }
+//                    }
+//                }
+//                .searchable(text: $searchText)
+//            }
+//        }
     }
 }
-    
 
 
 #Preview {
