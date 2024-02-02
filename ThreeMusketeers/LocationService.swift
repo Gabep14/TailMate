@@ -7,6 +7,7 @@
 
 import MapKit
 
+
 struct SearchCompletions: Identifiable {
     let id = UUID()
     let title: String
@@ -25,6 +26,14 @@ struct SearchResult: Identifiable, Hashable {
     func hash(into hasher: inout Hasher) {
         hasher.combine(id)
     }
+}
+
+struct Location: Codable, Equatable, Identifiable {
+    let id: UUID
+    var name: String
+    var description: String
+    var latitude: Double
+    var longitude: Double
 }
 
 @Observable
@@ -56,6 +65,8 @@ class LocationService: NSObject, MKLocalSearchCompleterDelegate {
         }
     }
     
+    
+    
     func search(with query: String, coordinate: CLLocationCoordinate2D? = nil) async throws -> [SearchResult] {
         let mapKitRequest = MKLocalSearch.Request()
         mapKitRequest.naturalLanguageQuery = query
@@ -77,3 +88,40 @@ class LocationService: NSObject, MKLocalSearchCompleterDelegate {
         }
     }
 }
+
+func getCoordinate( addressString: String, completionHandler: @escaping(CLLocationCoordinate2D, NSError?) -> Void ) {
+    let geocoder = CLGeocoder()
+    geocoder.geocodeAddressString(addressString) { (placemarks, error) in
+        if error == nil {
+            if let placemark = placemarks?[0] {
+                let location = placemark.location!
+                
+                completionHandler(location.coordinate, nil)
+                return
+            }
+        }
+        
+        completionHandler(kCLLocationCoordinate2DInvalid, error as NSError?)
+    }
+}
+func reverseGeocodeLocation(_ location: CLLocation, completionHandler: @escaping CLGeocodeCompletionHandler) {
+    
+}
+//func lookUpCurrentLocation(completionHandler: @escaping (CLPlacemark?) -> Void) {
+//    if let lastLocation = self.locationManager.location {
+//        let geocoder = CLGeocoder()
+//        
+//        geocoder.reverseGeocodeLocation(lastLocation, completionHandler: { (placemarks, error) in
+//            if error == nil {
+//                let firstLocation = placemarks?[0]
+//                completionHandler(firstLocation)
+//            }
+//            else {
+//                completionHandler(nil)
+//            }
+//        })
+//    }
+//    else {
+//        completionHandler(nil)
+//    }
+//}
