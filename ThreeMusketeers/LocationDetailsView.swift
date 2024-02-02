@@ -8,11 +8,20 @@
 import SwiftUI
 import MapKit
 
+
+
+
 struct LocationDetailsView: View {
     @Binding var mapSelection: MKMapItem?
     @Binding var isShowing: Bool
     @State private var lookAroundScene: MKLookAroundScene?
     @Binding var getDirections: Bool
+    @Binding var isFavorite: Bool
+    @Binding var results: [MKMapItem]
+    @Binding var favorites: [FavoriteLocation]
+
+ 
+    
     var body: some View {
         VStack {
             HStack {
@@ -39,6 +48,8 @@ struct LocationDetailsView: View {
                         .foregroundStyle(.gray, Color(.systemGray6))
                     
                 }
+                
+                
             }
             .padding(.horizontal)
             .padding(.top)
@@ -50,7 +61,11 @@ struct LocationDetailsView: View {
             } else {
                 ContentUnavailableView("No preview available", systemImage: "eye.slash")
             }
+           
+           
             HStack(spacing: 24) {
+                
+                
                 Button {
                     if let mapSelection {
                         mapSelection.openInMaps()
@@ -77,6 +92,16 @@ struct LocationDetailsView: View {
                 }
             }
             .padding(.horizontal)
+            Button {
+                isFavorite.toggle()
+                if isFavorite, let mapSelection {
+                    addToFavorites(name: mapSelection.placemark.name ?? "", coordiante: mapSelection.placemark.coordinate)
+                }
+            } label: {
+                Image(systemName: isFavorite ? "heart.fill" : "heart")
+                Text(isFavorite ? "Remove from Favorites" : "Add to Favorites")
+            }
+            .foregroundColor(isFavorite ? .red : .blue)
         }
         .onAppear {
             print("DEBUG: Did call on appear")
@@ -87,6 +112,9 @@ struct LocationDetailsView: View {
             print("DEBUG: Did call on change")
 
         }
+//        .onChange(of: favorites) { _ in
+//            print("Favorites: \(favorites)")
+//        }
         .padding()
     }
 }
@@ -101,8 +129,14 @@ extension LocationDetailsView {
             }
         }
     }
+    
+    func addToFavorites(name: String, coordiante: CLLocationCoordinate2D) {
+        let favorite = FavoriteLocation(name: name, coordinate: coordiante)
+        favorites.append(favorite)
+        print("Favorites after adding: \(favorites)")
+    }
 }
 
 #Preview {
-    LocationDetailsView(mapSelection: .constant(nil), isShowing: .constant(false), getDirections: .constant(false))
+    LocationDetailsView(mapSelection: .constant(nil), isShowing: .constant(false), getDirections: .constant(false), isFavorite: .constant(false), results: .constant([]), favorites: .constant([]))
 }

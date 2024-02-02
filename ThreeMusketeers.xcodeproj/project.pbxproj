@@ -14,6 +14,11 @@
 		641DB7D72B614E60003CD975 /* ThreeMusketeersTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641DB7D62B614E60003CD975 /* ThreeMusketeersTests.swift */; };
 		641DB7E12B614E60003CD975 /* ThreeMusketeersUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641DB7E02B614E60003CD975 /* ThreeMusketeersUITests.swift */; };
 		641DB7E32B614E60003CD975 /* ThreeMusketeersUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 641DB7E22B614E60003CD975 /* ThreeMusketeersUITestsLaunchTests.swift */; };
+		645293932B6403430076398D /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645293922B6403430076398D /* MapView.swift */; };
+		645293B62B69403B0076398D /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645293B52B69403B0076398D /* FavoritesView.swift */; };
+		645293B82B6940730076398D /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645293B72B6940730076398D /* AccountView.swift */; };
+		645293BA2B69597E0076398D /* FavoritesSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645293B92B69597E0076398D /* FavoritesSelectedView.swift */; };
+		645293BC2B6BF9B00076398D /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645293BB2B6BF9B00076398D /* LocationDetailsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +49,11 @@
 		641DB7DC2B614E60003CD975 /* ThreeMusketeersUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ThreeMusketeersUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		641DB7E02B614E60003CD975 /* ThreeMusketeersUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeMusketeersUITests.swift; sourceTree = "<group>"; };
 		641DB7E22B614E60003CD975 /* ThreeMusketeersUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThreeMusketeersUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		645293922B6403430076398D /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		645293B52B69403B0076398D /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
+		645293B72B6940730076398D /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
+		645293B92B69597E0076398D /* FavoritesSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSelectedView.swift; sourceTree = "<group>"; };
+		645293BB2B6BF9B00076398D /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,6 +105,11 @@
 			isa = PBXGroup;
 			children = (
 				641DB7C52B614E5F003CD975 /* ThreeMusketeersApp.swift */,
+				645293B72B6940730076398D /* AccountView.swift */,
+				645293922B6403430076398D /* MapView.swift */,
+				645293BB2B6BF9B00076398D /* LocationDetailsView.swift */,
+				645293B92B69597E0076398D /* FavoritesSelectedView.swift */,
+				645293B52B69403B0076398D /* FavoritesView.swift */,
 				641DB7C72B614E5F003CD975 /* ContentView.swift */,
 				641DB7C92B614E60003CD975 /* Assets.xcassets */,
 				641DB7CB2B614E60003CD975 /* Preview Content */,
@@ -257,7 +272,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				645293932B6403430076398D /* MapView.swift in Sources */,
 				641DB7C82B614E5F003CD975 /* ContentView.swift in Sources */,
+				645293B62B69403B0076398D /* FavoritesView.swift in Sources */,
+				645293BC2B6BF9B00076398D /* LocationDetailsView.swift in Sources */,
+				645293B82B6940730076398D /* AccountView.swift in Sources */,
+				645293BA2B69597E0076398D /* FavoritesSelectedView.swift in Sources */,
 				641DB7C62B614E5F003CD975 /* ThreeMusketeersApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +442,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ThreeMusketeers/Preview Content\"";
+				DEVELOPMENT_TEAM = 6W2BB3Y823;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -429,6 +450,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -450,6 +472,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"ThreeMusketeers/Preview Content\"";
+				DEVELOPMENT_TEAM = 6W2BB3Y823;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
@@ -457,6 +480,7 @@
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
