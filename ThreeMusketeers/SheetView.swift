@@ -14,6 +14,7 @@ struct SheetView: View {
     @State private var locationService = LocationService(completer: .init())
     @State private var search = ""
     @Binding var searchResults: [SearchResult]
+    @Binding var locations: [Location]
     
     var body: some View {
        
@@ -21,7 +22,7 @@ struct SheetView: View {
             HStack {
                 Image(systemName: "magnifyingglass")
                 TextField("Search", text: $search)
-                    .autocorrectionDisabled()
+                  //  .autocorrectionDisabled()
                 
                     .onSubmit {
                         Task {
@@ -46,6 +47,7 @@ struct SheetView: View {
                                 Link(url.absoluteString, destination: url)
                                     .lineLimit(1)
                             }
+                            
                         }
                     }
                     
@@ -62,7 +64,6 @@ struct SheetView: View {
         }
         
         .padding()
-        .interactiveDismissDisabled()
         .presentationDetents([.height(200), .large])
         .presentationBackground(.regularMaterial)
         .presentationBackgroundInteraction(.enabled(upThrough: .large))
@@ -92,9 +93,10 @@ struct SheetView: View {
 //#Preview {
     struct SheetView_Previews: PreviewProvider {
         @State static var searchResults: [SearchResult] = [] 
+        @State static var locations: [Location] = []
         
         static var previews: some View {
-            SheetView(searchResults: $searchResults)
+            SheetView(searchResults: $searchResults, locations: $locations)
                 .previewDisplayName("SheetView Preview")
         }
     }

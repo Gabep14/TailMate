@@ -10,35 +10,45 @@ import MapKit
 
 struct ContentView: View {
     @State private var searchText = ""
+    @State var searchResults = [SearchResult]()
+    @State private var showingSheet = false
+    @State var locations: [Location] = []
     var body: some View {
-        MapView()
-//        TabView {
-//            VStack {
-//                Text("Tailgates Near You")
-//                NavigationStack {
-//                    //   Text("Search \(searchText)")
-//                    Map {
-//                        Annotation("Ford Field", coordinate: .fordField) {
-//                            ZStack {
-//                                RoundedRectangle(cornerRadius: 5)
-//                                Text("🏈")
-//                                    .padding(5)
-//                                
-//                            }
-//                        }
-//                    }
-//                }
-//                .searchable(text: $searchText)
-//            }
-//        }
-    }
-}
+        VStack {
+          
+                Button("Search", systemImage: "magnifyingglass") {
+                    
+                    showingSheet = true
+                }
+                .padding(10)
+                .cornerRadius(10)
+                .foregroundColor(.primary)
+                
+            }
+            TabView {
+                if showingSheet == false {
+                    MapView(isSheetPresented: false, locations: $locations)
+                        .tabItem { Label("Map", systemImage: "magnifyingglass") }
+                                   
+                } else {
+                    MapView(isSheetPresented: true, locations: $locations)
+                        .tabItem { Label("Map", systemImage: "magnifyingglass") }
+                }
+                FavoritesView(locations: $locations, searchResults: $searchResults)
+                    .tabItem { Label("Favorites", systemImage: "heart") }
+                
 
+                AccountView()
+                    .tabItem { Label("Account", systemImage: "person") }
+            }
+        }
+   
+}
 
 #Preview {
     ContentView()
 }
 
-extension CLLocationCoordinate2D {
-    static let fordField = CLLocationCoordinate2D(latitude: 42.34000, longitude: -83.0456)
-}
+//extension CLLocationCoordinate2D {
+//    static let fordField = CLLocationCoordinate2D(latitude: 42.34000, longitude: -83.0456)
+//}
