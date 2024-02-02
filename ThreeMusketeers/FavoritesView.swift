@@ -6,28 +6,35 @@
 //
 
 import SwiftUI
+import MapKit
+
+struct FavoriteLocation: Identifiable {
+    let id = UUID()
+    let name: String
+    let coordinate: CLLocationCoordinate2D
+}
 
 struct FavoritesView: View {
-    @Binding var locations: [Location]
-    @Binding var searchResults: [SearchResult]
+
+    @Binding var favorites: [FavoriteLocation]
+
     
     var body: some View {
         NavigationView {
-            List {
-                ForEach(locations, id: \.name) { location in
-                    NavigationLink(destination: FavoritesSelectedView(locations: $locations, searchResults: $searchResults), label:  {
-                        Text(location.name)
-                        
-                        
-                    }
-                    )
+            List(favorites) { favorite in
+                NavigationLink(destination: FavoritesSelectedView(favorites: $favorites)) {
+                    Text(favorite.name)
+                }
+            }
+                .onAppear {
+                    print("Favorites: \(favorites)")
                 }
                 
                 .navigationTitle("Favorites")
             }
         }
     }
-}
+
 #Preview {
-    FavoritesView(locations: .constant([]), searchResults: .constant([]))
+    FavoritesView(favorites: .constant([]))
 }

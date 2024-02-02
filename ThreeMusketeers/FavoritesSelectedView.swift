@@ -8,19 +8,20 @@
 import SwiftUI
 
 struct FavoritesSelectedView: View {
-    @Binding var locations: [Location]
-    @Binding var searchResults: [SearchResult]
+    @Binding var favorites: [FavoriteLocation]
 
-  //  var selectedLocation: Location
     var body: some View {
         VStack {
-            Text("Tailgate")
-            .navigationTitle("Tailgate Locations")
+            List(favorites) { favorite in
+                Text("Latitude: \(favorite.coordinate.latitude), Longitude: \(favorite.coordinate.longitude)")
+            }
+            
         }
+        .navigationTitle("Tailgate Location")
     }
 }
 
 #Preview {
-    FavoritesSelectedView(locations: .constant([]), searchResults: .constant([]))
+    FavoritesSelectedView(favorites: .constant([]))
                                      
 }
