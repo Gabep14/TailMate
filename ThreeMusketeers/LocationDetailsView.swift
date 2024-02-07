@@ -19,10 +19,16 @@ struct LocationDetailsView: View {
     @Binding var isFavorite: Bool
     @Binding var results: [MKMapItem]
     @Binding var favorites: [FavoriteLocation]
+    @State private var tailgateName = ""
+    @State private var showingAlert = false
+    @State private var showingTextField = false
 
- 
-    
     var body: some View {
+    
+        
+        let geoCoder = CLGeocoder()
+        let location = CLLocation(latitude: mapSelection?.placemark.coordinate.latitude ?? 0, longitude: mapSelection?.placemark.coordinate.longitude ?? 0)
+        
         VStack {
             HStack {
                 VStack(alignment: .leading) {
@@ -55,53 +61,65 @@ struct LocationDetailsView: View {
             .padding(.top)
             if let scene = lookAroundScene {
                 LookAroundPreview(initialScene: scene)
-                    .frame(height: 200)
+                    .frame(height: 180)
                     .cornerRadius(12)
                     .padding()
             } else {
                 ContentUnavailableView("No preview available", systemImage: "eye.slash")
             }
            
-           
-            HStack(spacing: 24) {
-                
-                
+            VStack(spacing: 20) {
                 Button {
-                    if let mapSelection {
-                        mapSelection.openInMaps()
+                    isFavorite.toggle()
+                    if isFavorite {
+                        showingAlert = true
+                        showingTextField = true
                     }
-                    
                 } label: {
-                    Text("Open in Maps")
+                    Image(systemName: isFavorite ? "heart.fill" : "heart")
+                    Text(isFavorite ? "Remove from Favorites" : "Add to Favorites")
                         .font(.headline)
                         .foregroundColor(.white)
                         .frame(width: 170, height: 48)
-                        .background(.green)
+                        .background(isFavorite ? .red : .gray)
                         .cornerRadius(12)
                 }
-                Button {
-                    getDirections = true
-                    isShowing = false
-                } label: {
-                    Text("Get Directions")
-                        .font(.headline)
-                        .foregroundColor(.white)
-                        .frame(width: 170, height: 48)
-                        .background(.blue)
-                        .cornerRadius(12)
+                HStack(spacing: 24) {
+                    Button {
+                        if let mapSelection {
+                            mapSelection.openInMaps()
+                        }
+                        
+                    } label: {
+                        Text("Open in Maps")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(width: 120, height: 40)
+                            .background(.green)
+                            .cornerRadius(12)
+                    }
+                    Button {
+                        getDirections = true
+                        isShowing = false
+                    } label: {
+                        Text("Get Directions")
+                            .font(.headline)
+                            .foregroundColor(.white)
+                            .frame(width: 120, height: 40)
+                            .background(.blue)
+                            .cornerRadius(12)
+                    }
                 }
             }
             .padding(.horizontal)
-            Button {
-                isFavorite.toggle()
-                if isFavorite, let mapSelection {
-                    addToFavorites(name: mapSelection.placemark.name ?? "", coordiante: mapSelection.placemark.coordinate)
+            .alert("Enter tailgate name", isPresented: $showingAlert) {
+                TextField("Enter tailgate name", text: $tailgateName)
+                Button("OK") {
+                        submit(location: location, geoCoder: geoCoder, tailgateName: tailgateName)
                 }
-            } label: {
-                Image(systemName: isFavorite ? "heart.fill" : "heart")
-                Text(isFavorite ? "Remove from Favorites" : "Add to Favorites")
             }
             .foregroundColor(isFavorite ? .red : .blue)
+            .padding()
         }
         .onAppear {
             print("DEBUG: Did call on appear")
@@ -112,12 +130,54 @@ struct LocationDetailsView: View {
             print("DEBUG: Did call on change")
 
         }
-//        .onChange(of: favorites) { _ in
-//            print("Favorites: \(favorites)")
-//        }
+        
+            
         .padding()
+        .persistentSystemOverlays(.hidden)
     }
+    
+    func submit(location: CLLocation, geoCoder: CLGeocoder, tailgateName: String) {
+        if mapSelection != nil {
+            reverse(location: location, geoCoder: geoCoder, tailgateName: tailgateName)
+        }
+    }
+    
+    func reverse(location: CLLocation, geoCoder: CLGeocoder, tailgateName: String) {
+        geoCoder.reverseGeocodeLocation(location)  {
+            placemarks, error in
+            guard let placemark = placemarks?.first else {
+                return
+            }
+            var favoriteName = tailgateName + "\n"
+            
+            if let subThoroughfare = placemark.subThoroughfare {
+                favoriteName += subThoroughfare + " "
+            }
+            if let thoroughfare = placemark.thoroughfare {
+                favoriteName += thoroughfare + ", "
+                print(thoroughfare)
+            }
+            if let city = placemark.locality {
+                favoriteName += city + ", "
+                print(city)
+            }
+            if let country = placemark.isoCountryCode {
+                favoriteName += country + " "
+
+                print(country)
+            }
+            if let zip = placemark.postalCode {
+                favoriteName += zip + " "
+
+                print(zip)
+            }
+            favorites.append(FavoriteLocation(name: favoriteName, coordinate: location.coordinate, subThoroughfare: placemark.subThoroughfare ?? " "))
+       
+        }
+    }
+    
 }
+
 
 extension LocationDetailsView {
     func fetchLookAroundPreview() {
@@ -130,11 +190,11 @@ extension LocationDetailsView {
         }
     }
     
-    func addToFavorites(name: String, coordiante: CLLocationCoordinate2D) {
-        let favorite = FavoriteLocation(name: name, coordinate: coordiante)
-        favorites.append(favorite)
-        print("Favorites after adding: \(favorites)")
-    }
+//    func addToFavorites(name: String, coordiante: CLLocationCoordinate2D, subThoroughFare: String) {
+//        let favorite = FavoriteLocation(name: name, coordinate: coordiante, subThoroughfare: subThoroughFare)
+//        favorites.append(favorite)
+//        print("Favorites after adding: \(favorites)")
+//    }
 }
 
 #Preview {

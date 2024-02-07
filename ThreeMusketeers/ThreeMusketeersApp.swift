@@ -11,7 +11,7 @@ import SwiftUI
 struct ThreeMusketeersApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView(isShowing: .constant(false), getDirections: .constant(false), tailgateName: .constant(""))
         }
     }
 }

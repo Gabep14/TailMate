@@ -11,8 +11,17 @@ import MapKit
 struct ContentView: View {
     @State private var searchText = ""
     @State private var showingSheet = false
-    @State var results = [MKMapItem]()
-    @State private var favorites = [FavoriteLocation]()
+    @State private var usernameText = ""
+    @State private var passwordText = ""
+    @State private var text = ""
+   // @State var results = [MKMapItem]()
+    @State var favorites: [FavoriteLocation] = []
+    @State private var mapSelection: MKMapItem?
+    @Binding var isShowing: Bool
+    @Binding var getDirections: Bool
+    @Binding var tailgateName: String
+    @State var locationName: [String] = [] // REMOVE THIS TO FIX BUILD
+
 
     
     var body: some View {
@@ -22,16 +31,17 @@ struct ContentView: View {
                 MapView(favorites: $favorites)
                     .tabItem { Label("Map", systemImage: "magnifyingglass") }
                     
-                FavoritesView(favorites: $favorites)
+                FavoritesView(favorites: $favorites, searchText: $searchText, mapSelection: $mapSelection, isShowing: $isShowing, getDirections: $getDirections, tailgateName: $tailgateName, locationName: $locationName)
                     .tabItem { Label("Favorites", systemImage: "heart") }
                 
-                AccountView()
+                AccountView(usernameText: $usernameText, passwordText: $passwordText)
                     .tabItem { Label("Account", systemImage: "person") }
             }
         }
+        .persistentSystemOverlays(.hidden)
     }
 }
 
 #Preview {
-    ContentView()
+    ContentView(isShowing: .constant(false), getDirections: .constant(false), tailgateName: .constant(""))
 }
