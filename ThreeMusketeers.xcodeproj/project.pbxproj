@@ -19,6 +19,7 @@
 		645293B82B6940730076398D /* AccountView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645293B72B6940730076398D /* AccountView.swift */; };
 		645293BA2B69597E0076398D /* FavoritesSelectedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645293B92B69597E0076398D /* FavoritesSelectedView.swift */; };
 		645293BC2B6BF9B00076398D /* LocationDetailsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 645293BB2B6BF9B00076398D /* LocationDetailsView.swift */; };
+		649F5B572B7286EE00DB92C5 /* DirectoryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 649F5B562B7286EE00DB92C5 /* DirectoryService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,7 @@
 		645293B72B6940730076398D /* AccountView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountView.swift; sourceTree = "<group>"; };
 		645293B92B69597E0076398D /* FavoritesSelectedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesSelectedView.swift; sourceTree = "<group>"; };
 		645293BB2B6BF9B00076398D /* LocationDetailsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsView.swift; sourceTree = "<group>"; };
+		649F5B562B7286EE00DB92C5 /* DirectoryService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DirectoryService.swift; path = ../../../../../Downloads/DirectoryService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				641DB7C52B614E5F003CD975 /* ThreeMusketeersApp.swift */,
+				649F5B562B7286EE00DB92C5 /* DirectoryService.swift */,
 				645293B72B6940730076398D /* AccountView.swift */,
 				645293922B6403430076398D /* MapView.swift */,
 				645293BB2B6BF9B00076398D /* LocationDetailsView.swift */,
@@ -279,6 +282,7 @@
 				645293B82B6940730076398D /* AccountView.swift in Sources */,
 				645293BA2B69597E0076398D /* FavoritesSelectedView.swift in Sources */,
 				641DB7C62B614E5F003CD975 /* ThreeMusketeersApp.swift in Sources */,
+				649F5B572B7286EE00DB92C5 /* DirectoryService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
