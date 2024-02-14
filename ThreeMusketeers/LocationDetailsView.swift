@@ -22,6 +22,10 @@ struct LocationDetailsView: View {
     @State private var tailgateName = ""
     @State private var showingAlert = false
     @State private var showingTextField = false
+    
+    func saveFavorites() {
+        DirectoryService.writeModelToDisk(favorites)
+    }
 
     var body: some View {
     
@@ -171,7 +175,8 @@ struct LocationDetailsView: View {
 
                 print(zip)
             }
-            favorites.append(FavoriteLocation(name: favoriteName, coordinate: location.coordinate, subThoroughfare: placemark.subThoroughfare ?? " "))
+            favorites.append(FavoriteLocation(name: favoriteName, coordinate: location.coordinate))
+            saveFavorites()
        
         }
     }

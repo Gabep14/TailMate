@@ -20,7 +20,8 @@ struct MapView: View {
     @State private var routeDestination: MKMapItem?
     @State private var isFavorite = false
     @Binding var favorites: [FavoriteLocation]
-    //  @GestureState private var tapLocation: CGPoint?
+    @State var sampleTailgateAddresses: [String] = ["419 E Fort St Detroit, MI 48226", "1902 Saint Antoine St Detroit, MI 48226", "1600 Woodward Ave Detroit, MI  48226", "1777 Third St Detroit, MI  48226", "1445 Adelaide St Detroit, MI  48207", "168 W Columbia St Detroit, MI  48201", "1 Washington Blvd Detroit, MI 48226"]
+    @State var sampleTailgates: [MKMapItem] = []
     
     
     var body: some View {
@@ -36,12 +37,23 @@ struct MapView: View {
                         userPosition = .region(.userRegion)
                         routeDestination = nil
                     } label: {Image(systemName:"x.circle")
-                    }
-                    
+                  }
                 }
             }
             Map(position: $userPosition , selection: $mapSelection) {
                 UserAnnotation()
+                let square1 = [CLLocationCoordinate2D(latitude: 42.332759857177734, longitude: -83.04241180419922), CLLocationCoordinate2D(latitude: 42.3393025, longitude: -83.0432991), CLLocationCoordinate2D(latitude: 42.334739685058594, longitude: -83.06059265136719), CLLocationCoordinate2D(latitude: 42.3286434, longitude: -83.0562722)]
+
+
+//                MapCircle(center: circle1, radius: CLLocationDistance(600))
+//                    .foregroundStyle(.yellow.opacity(0.60))
+//                    .mapOverlayLevel(level: .aboveLabels)
+                
+                
+                MapPolygon(coordinates: square1)
+                    .foregroundStyle(.orange.opacity(0.60))
+                    .mapOverlayLevel(level: .aboveLabels)
+                
                 Annotation("My location", coordinate: .userLocation) {
                     ZStack {
                         Circle()
@@ -58,6 +70,11 @@ struct MapView: View {
                         
                     }
                 }
+                ForEach(sampleTailgates, id: \.self) { item in
+                    let placemark = item.placemark
+                    Marker(placemark.name ?? "", coordinate: placemark.coordinate)
+                }
+                
                 ForEach(results, id: \.self) {item in
                     if routeDisplaying {
                         if item == routeDestination {
@@ -135,6 +152,11 @@ struct MapView: View {
             MapUserLocationButton()
         }
         .persistentSystemOverlays(.hidden)
+        .onAppear {
+            for address in sampleTailgateAddresses {
+                fetchCoordinates(address)
+            }
+        }
     }
     
     
@@ -142,7 +164,29 @@ struct MapView: View {
         let lookAroundScene = MKLookAroundSceneRequest(coordinate: coordinate)
         return try await lookAroundScene.scene
     }
+    
+    func fetchCoordinates(_ address: String) {
+        let geoCoder = CLGeocoder()
+        geoCoder.geocodeAddressString(address) { placemarks, error in
+            guard let placemark = placemarks?.first, let location = placemark.location
+            else {
+                return
+            }
+            let mapItem = MKMapItem(placemark: MKPlacemark(coordinate: location.coordinate))
+            sampleTailgates.append(mapItem)
+        }
+    }
+    func createCircleRenderer(for circle: MKCircle) -> MKCircleRenderer {
+        let renderer = MKCircleRenderer(circle: circle)
+        renderer.lineWidth = 2
+        renderer.strokeColor = .systemBlue
+        renderer.fillColor = .systemTeal
+        renderer.alpha = 0.5
+        return renderer
+    }
 }
+
+
 
 extension MapView {
     
@@ -183,13 +227,13 @@ extension MapView {
 
 extension CLLocationCoordinate2D {
     static var userLocation: CLLocationCoordinate2D {
-        return .init(latitude: 42.34, longitude: -83.0456)
+        return .init(latitude: 42.330810546875, longitude: -83.04602813720703)
     }
 }
 
 extension MKCoordinateRegion {
     static var userRegion: MKCoordinateRegion {
-        return .init(center: .userLocation, latitudinalMeters: 10000, longitudinalMeters: 10000)
+        return .init(center: .userLocation, latitudinalMeters: 5000, longitudinalMeters: 5000)
     }
 }
 

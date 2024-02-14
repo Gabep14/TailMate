@@ -16,27 +16,23 @@ struct FavoriteLocation: Identifiable, Codable {
     }
     var lat: Double
     var lon: Double
-    let subThoroughfare: String
-    init(name: String, lat: Double, lon: Double, subThoroughfare: String) {
+    init(name: String, lat: Double, lon: Double) {
         self.id = UUID()
         self.name = name
         self.lat = lat
         self.lon = lon
-        self.subThoroughfare = subThoroughfare
     }
-    init(name: String, coordinate: CLLocationCoordinate2D, subThoroughfare: String) {
+    init(name: String, coordinate: CLLocationCoordinate2D) {
         self.id = UUID()
         self.name = name
         self.lat = coordinate.latitude
         self.lon = coordinate.longitude
-        self.subThoroughfare = subThoroughfare
     }
 }
 
 struct FavoritesView: View {
     
     @Binding var favorites: [FavoriteLocation]
-//    @AppStorage("Favorite") var selectedFavorite: FavoriteLocation?
     @Binding var searchText: String
     @Binding var mapSelection: MKMapItem?
     @Binding var isShowing: Bool
@@ -45,6 +41,15 @@ struct FavoritesView: View {
     @Binding var locationName: [String]
 
 
+    
+    func loadFavorites() {
+        favorites = DirectoryService.readModelFromDisk()
+    }
+    
+    func saveFavorites() {
+        DirectoryService.writeModelToDisk(favorites)
+    }
+    
     
     var filteredFavorites: [FavoriteLocation] {
         if searchText.isEmpty {
@@ -64,6 +69,7 @@ struct FavoritesView: View {
                 }
                 .onDelete { indexSet in
                     favorites.remove(atOffsets: indexSet)
+                    saveFavorites()
                 }
             }
             .toolbar {
@@ -72,9 +78,8 @@ struct FavoritesView: View {
                 }
             }
             .onAppear {
-                print("Favorites: \(favorites)")
+                loadFavorites()
             }
-            
             
             .navigationTitle("Favorites")
         }
