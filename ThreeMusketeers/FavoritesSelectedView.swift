@@ -33,6 +33,6 @@ struct FavoritesSelectedView: View {
 }
 
 #Preview {
-    FavoritesSelectedView(selectedFavorite: FavoriteLocation(name: "", coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0), subThoroughfare: ""), tailgateName: .constant(""), locationName: .constant([""]))
+    FavoritesSelectedView(selectedFavorite: FavoriteLocation(name: "", coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0)), tailgateName: .constant(""), locationName: .constant([""]))
                                      
 }
