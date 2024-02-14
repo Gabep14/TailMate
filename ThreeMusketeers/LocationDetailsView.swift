@@ -186,11 +186,12 @@ struct LocationDetailsView: View {
 
 extension LocationDetailsView {
     func fetchLookAroundPreview() {
-        if let mapSelection {
+        if let mapSelection = mapSelection {
             lookAroundScene = nil
             Task {
                 let request = MKLookAroundSceneRequest(mapItem: mapSelection)
-                lookAroundScene = try? await request.scene
+                let scene = try? await request.scene
+                lookAroundScene = scene
             }
         }
     }

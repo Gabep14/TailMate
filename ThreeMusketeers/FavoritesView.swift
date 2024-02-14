@@ -81,7 +81,7 @@ struct FavoritesView: View {
                 loadFavorites()
             }
             
-            .navigationTitle("Favorites")
+            .navigationTitle("Favorite Tailgates")
         }
     }
 }
