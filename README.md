@@ -9,9 +9,16 @@ TailMate is an app designed to connect sports fans, concert enthusiasts, cultura
 Tailgating is a popular activity, particularly for sports fans, to meet in parking lots and empty spaces before sporting events. Fans can share food, drinks, fun activities, and even set up TVs to watch the game. Growing up near Detroit, my team and I know how important tailgating is to Detroit sports fans. According to Crestline, Detroit is ranked fourth in the NFL for the "most hardcore tailgaters". However, many fans such as myself don't always know where the best tailgates are or how to find them. This is where TailMate comes in, allowing a user to open the app and easily locate nearby tailgates filtered by event, density, and location.
 ## Screenshots
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img width="300" alt="image" src="https://github.com/Gabep14/ThreeMusketeers/assets/148350526/c84aa76e-d45b-4bca-be53-75f4e785ed4b">
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img width="300" alt="image" src="https://github.com/Gabep14/ThreeMusketeers/assets/148350526/9d599b1d-525c-4096-865c-2b9d7a408d15">
+
+<img width="300" alt="image" src="https://github.com/Gabep14/ThreeMusketeers/assets/148350526/87752cac-b3b1-44f3-aaf8-40c44730193e">
+
+<img width="300" alt="image" src="https://github.com/Gabep14/ThreeMusketeers/assets/148350526/d4e7fcd6-4fdb-4295-a7b8-de401bd5e969">
+
+<img width="300" alt="image" src="https://github.com/Gabep14/ThreeMusketeers/assets/148350526/d334cf34-eca5-45e5-9f62-d77b5d5e00ce">
+
 
 ## Objectives
 
@@ -27,9 +34,14 @@ Tailgating is a popular activity, particularly for sports fans, to meet in parki
 Swift, Swift UI, Xcode, Sketch, MapKit, Maps
 ## Project Timeline
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img width="800" alt="Screenshot 2024-03-30 at 6 39 28 PM" src="https://github.com/Gabep14/ThreeMusketeers/assets/148350526/afee7bf7-ba13-4770-b513-35731b8ea313">
 
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+<img width="800" alt="Screenshot 2024-03-30 at 6 37 36 PM" src="https://github.com/Gabep14/ThreeMusketeers/assets/148350526/48de4b27-df91-402a-a341-62a6b6c60b58">
+
+<img width="800" alt="Screenshot 2024-03-30 at 6 35 47 PM" src="https://github.com/Gabep14/ThreeMusketeers/assets/148350526/da56619b-82c3-4d77-b86d-eeea0412c956">
+
+<img width="800" alt="Screenshot 2024-03-30 at 6 38 33 PM" src="https://github.com/Gabep14/ThreeMusketeers/assets/148350526/a38d3f29-6b10-4387-adf5-8e9e1a2e9403">
+
 
 ## Technical Walkthrough
 
@@ -40,4 +52,7 @@ The MapKit API is native to Apple and works well with Apple Maps functionalities
 
 Below is a walkthrough of TailMate 1.0
 - On appear, the user is greeted with nearby tailgates as map pins and the density of tailgates in the area
+
+
+
 
