@@ -50,9 +50,7 @@ TailMate took a lot of learning and perserverence as it involved using the MapKi
 The MapKit API is native to Apple and works well with Apple Maps functionalities, however it yielded many challenges and sparked an immense learning project for me. I quickly realized the map functionalities such as search and map pins were not built-in Swift functions, I had to hard code them myself. This took most of the projet time, as well as connecting these functionalities between views and using @Binding variables. We quickly realized many of the ambitions we had in our Hi-Fi prototypes were not attainable in our short timeline, so I focused on the necesseties of the app, including search, map pins, favoriting locations, and density areas. I was also able to add some features to enhance user experience, such as look around previews and in-app directions, as well as a button to take you to Apple Maps directions. This complex project taught me so much as a developer, from simple aspects of connecting UI views to learning how to use an API and code complex, interconnected functions. 
 ## Demo
 
-Below is a walkthrough of TailMate 1.0
+Below is a YouTube link to a walkthrough of TailMate 1.0
 - On appear, the user is greeted with nearby tailgates as map pins and the density of tailgates in the area
 
-
-
-
+https://youtube.com/shorts/eumO5F7y3cQ?si=tc4_bZcElMt0COHK
