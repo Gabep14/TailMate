@@ -9,6 +9,7 @@ import SwiftUI
 import MapKit
 
 struct FavoritesSelectedView: View {
+    let link = URL(string: "www.apple.com")!
   //  @Binding var favorites: [FavoriteLocation]
     var selectedFavorite: FavoriteLocation
     @Binding var tailgateName: String
@@ -25,6 +26,7 @@ struct FavoritesSelectedView: View {
                 Text(selectedFavorite.name)
                 Text("Latitude: \(selectedFavorite.coordinate.latitude), Longitude: \(selectedFavorite.coordinate.longitude)")
                     .padding()
+                ShareLink("Share Event", item: link)
             }
             .navigationTitle("Tailgate Location")
         }

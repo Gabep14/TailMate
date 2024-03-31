@@ -50,68 +50,6 @@
             endingLineNumber = "193"
             landmarkName = "fetchLookAroundPreview()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "7AC2953C-87F3-4ECB-A8BD-6DE38FA9D3F7 - f6129a689dc2d700"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(1) suspend resume partial function for closure #1 @Sendable () async -&gt; () in ThreeMusketeers.LocationDetailsView.fetchLookAroundPreview() -&gt; ()"
-                  moduleName = "ThreeMusketeers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabepush/Documents/XCode/Apple%20Developer%20Academy/ThreeMusketeers/ThreeMusketeers/LocationDetailsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "193"
-                  endingLineNumber = "193"
-                  offsetFromSymbolStart = "180">
-               </Location>
-               <Location
-                  uuid = "7AC2953C-87F3-4ECB-A8BD-6DE38FA9D3F7 - 73cf8ad2f52eb111"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(2) await resume partial function for closure #1 @Sendable () async -&gt; () in ThreeMusketeers.LocationDetailsView.fetchLookAroundPreview() -&gt; ()"
-                  moduleName = "ThreeMusketeers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabepush/Documents/XCode/Apple%20Developer%20Academy/ThreeMusketeers/ThreeMusketeers/LocationDetailsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "193"
-                  endingLineNumber = "193"
-                  offsetFromSymbolStart = "52">
-               </Location>
-               <Location
-                  uuid = "7AC2953C-87F3-4ECB-A8BD-6DE38FA9D3F7 - d682e9e76fff9b02"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in ThreeMusketeers.LocationDetailsView.fetchLookAroundPreview() -&gt; ()"
-                  moduleName = "ThreeMusketeers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabepush/Documents/XCode/Apple%20Developer%20Academy/ThreeMusketeers/ThreeMusketeers/LocationDetailsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "193"
-                  endingLineNumber = "193"
-                  offsetFromSymbolStart = "60">
-               </Location>
-               <Location
-                  uuid = "7AC2953C-87F3-4ECB-A8BD-6DE38FA9D3F7 - a6ca11bfd882fcfd"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in ThreeMusketeers.LocationDetailsView.fetchLookAroundPreview() -&gt; ()"
-                  moduleName = "ThreeMusketeers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabepush/Documents/XCode/Apple%20Developer%20Academy/ThreeMusketeers/ThreeMusketeers/LocationDetailsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "193"
-                  endingLineNumber = "193"
-                  offsetFromSymbolStart = "64">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -128,68 +66,6 @@
             endingLineNumber = "194"
             landmarkName = "fetchLookAroundPreview()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "E3DDC3BE-B76D-4B59-8533-8DB6CFAFB900 - d682e9e76fff9b23"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in ThreeMusketeers.LocationDetailsView.fetchLookAroundPreview() -&gt; ()"
-                  moduleName = "ThreeMusketeers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabepush/Documents/XCode/Apple%20Developer%20Academy/ThreeMusketeers/ThreeMusketeers/LocationDetailsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
-                  offsetFromSymbolStart = "216">
-               </Location>
-               <Location
-                  uuid = "E3DDC3BE-B76D-4B59-8533-8DB6CFAFB900 - a6ca11bfd882fcdc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in ThreeMusketeers.LocationDetailsView.fetchLookAroundPreview() -&gt; ()"
-                  moduleName = "ThreeMusketeers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabepush/Documents/XCode/Apple%20Developer%20Academy/ThreeMusketeers/ThreeMusketeers/LocationDetailsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
-                  offsetFromSymbolStart = "232">
-               </Location>
-               <Location
-                  uuid = "E3DDC3BE-B76D-4B59-8533-8DB6CFAFB900 - d682e9e76fff9b23"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(3) suspend resume partial function for closure #1 @Sendable () async -&gt; () in ThreeMusketeers.LocationDetailsView.fetchLookAroundPreview() -&gt; ()"
-                  moduleName = "ThreeMusketeers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabepush/Documents/XCode/Apple%20Developer%20Academy/ThreeMusketeers/ThreeMusketeers/LocationDetailsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
-                  offsetFromSymbolStart = "124">
-               </Location>
-               <Location
-                  uuid = "E3DDC3BE-B76D-4B59-8533-8DB6CFAFB900 - a6ca11bfd882fcdc"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "(4) suspend resume partial function for closure #1 @Sendable () async -&gt; () in ThreeMusketeers.LocationDetailsView.fetchLookAroundPreview() -&gt; ()"
-                  moduleName = "ThreeMusketeers"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/gabepush/Documents/XCode/Apple%20Developer%20Academy/ThreeMusketeers/ThreeMusketeers/LocationDetailsView.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "194"
-                  endingLineNumber = "194"
-                  offsetFromSymbolStart = "152">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
