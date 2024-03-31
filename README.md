@@ -11,7 +11,7 @@ Tailgating is a popular activity, particularly for sports fans, to meet in parki
 
 ![Screenshot 2024-03-30 at 7 02 56 PM](https://github.com/Gabep14/ThreeMusketeers/assets/148350526/5dfa78c6-eaa8-497a-ac73-62c7c41157d3)
 
-## Screenshots
+## Screens
 
 <img width="300" alt="image" src="https://github.com/Gabep14/ThreeMusketeers/assets/148350526/c84aa76e-d45b-4bca-be53-75f4e785ed4b">
 
